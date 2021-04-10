@@ -24,7 +24,7 @@ public class TodoViewModel extends AndroidViewModel {
         return allTodos;
     }
 
-   public void insert(ETodo todo) {
+    public void insert(ETodo todo) {
         mTodoRepository.insert(todo);
     }
 
@@ -40,5 +40,9 @@ public class TodoViewModel extends AndroidViewModel {
 
     public void update(ETodo eTodo){
         mTodoRepository.update(eTodo);
+    }
+
+    public void deleteCompleted() {
+        mTodoRepository.deleteCompleted();
     }
 }

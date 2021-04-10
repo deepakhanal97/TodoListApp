@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //Login Details of User default
                 if(userName.getText().toString().equals("Deepak") && password.getText().toString().equals("Khanal")) {
                     SharedPreferences preferences = getApplicationContext().getSharedPreferences("todo pref", 0);
                         SharedPreferences.Editor editor = preferences.edit();
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else {
+                    //Validation for login
                     userName.requestFocus();
                     userName.setError("Name is required");
                     password.requestFocus();

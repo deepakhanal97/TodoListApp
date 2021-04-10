@@ -13,10 +13,12 @@ import com.tbcmad.todoapp.data.TodoDAO;
 
 import java.util.Date;
 
+//Implement RoomDatabase
 @Database(entities = {ETodo.class}, version = 1, exportSchema = false)
 public abstract class TodoRoomDatabase extends RoomDatabase {
     public abstract TodoDAO mTodoDao();
 
+    //Create Singleton Object
     public static TodoRoomDatabase INSTANCE;
     public static TodoRoomDatabase getDatabase(Context context){
         if(INSTANCE == null) {

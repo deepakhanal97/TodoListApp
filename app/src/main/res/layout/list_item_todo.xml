@@ -16,10 +16,17 @@
 
     <TextView
         android:id="@+id/list_item_tv_date"
-        android:layout_width="113dp"
-        android:layout_height="match_parent"
+        android:layout_width="163dp"
+        android:layout_height="35dp"
         android:layout_weight=".25"
         android:width="20dp"
         android:text="TextView"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/status_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
 </LinearLayout>

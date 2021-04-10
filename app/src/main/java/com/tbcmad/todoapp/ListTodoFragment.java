@@ -51,7 +51,7 @@ public class ListTodoFragment extends Fragment {
                                   @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
-
+// to delete data by swipe
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 List<ETodo> todoList = viewModel.getAllTodos().getValue();
@@ -75,13 +75,14 @@ public class ListTodoFragment extends Fragment {
     }
 
     private class TodoHolder extends RecyclerView.ViewHolder{
-        TextView title, date;
+        TextView title, date, status;
         CheckBox completed;
 
         public TodoHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.list_item_todo, parent, false));
             title = itemView.findViewById(R.id.list_item_tv_title);
             date = itemView.findViewById(R.id.list_item_tv_date);
+            status = itemView.findViewById(R.id.status_id);
             completed = itemView.findViewById(R.id.edit_fragment_chk_complete);
 
             title.setOnClickListener(new View.OnClickListener() {
@@ -96,8 +97,14 @@ public class ListTodoFragment extends Fragment {
                     loadUpdateItem();
                 }
             });
+            status.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loadUpdateItem();
+                }
+            });
         }
-
+// to load data
         void loadUpdateItem(){
             TodoAdaptor adaptor = new TodoAdaptor(viewModel.getAllTodos().getValue());
             int i = getAdapterPosition();
@@ -111,6 +118,7 @@ public class ListTodoFragment extends Fragment {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             title.setText(todo.getTitle());
             date.setText(sdf.format(todo.getTodoDate()));
+            status.setText(todo.isCompleted()?"Completed":"Pending");
         }
     }
 

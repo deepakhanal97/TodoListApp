@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
                 case R.id.mnu_delete_cpmpleted:
                     Toast.makeText(getApplicationContext(),"Delete Completed", Toast.LENGTH_LONG).show();
+                    new ViewModelProvider(this).get(TodoViewModel.class).deleteCompleted();
                     break;
             case R.id.mnu_logout:
                 SharedPreferences preferences = getApplicationContext().getSharedPreferences("todo_pref", 0);

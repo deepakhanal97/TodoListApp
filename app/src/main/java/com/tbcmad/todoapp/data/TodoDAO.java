@@ -20,6 +20,9 @@ public interface  TodoDAO {
     @Query("DELETE FROM todo_table")
     void deleteAll();
 
+    @Query("DELETE FROM todo_table WHERE is_completed=1")
+    void deleteAllCompleted();
+
     @Delete
     void deleteById(ETodo todo);
 
